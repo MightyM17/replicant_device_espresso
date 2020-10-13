@@ -23,5 +23,4 @@ the features the devices don't actually support yet.
 
 -->
 <permissions>
-  <unavailable-feature name="android.hardware.bluetooth" />
 </permissions>

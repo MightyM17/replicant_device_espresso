@@ -64,11 +64,13 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl \
     android.hardware.soundtrigger@2.2-impl \
     android.hardware.audio@2.0-service \
+    libfmq \
 
 # A2DP
 PRODUCT_PACKAGES += \
   audio.a2dp.default \
   android.hardware.bluetooth.a2dp@1.0-impl \
+  android.hardware.bluetooth.audio@2.0-impl \
 
 # Sound trigger
 PRODUCT_PACKAGES += \

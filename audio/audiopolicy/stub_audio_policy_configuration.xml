@@ -38,9 +38,79 @@
     <devicePort tagName="Default In" type="AUDIO_DEVICE_IN_STUB" role="source">
     </devicePort>
   </devicePorts>
+
   <routes>
-    <route type="mix" sink="Default Out" sources="stub output"/>
+    <!-- do not change the adc & dac source of AIF2 -->
+    <route type="mix" sink="AIF2ADCR Source" sources="stub output" />
+
+    <!-- AIF1->DAC1 -->
+    <route type="mix" sink="DAC1 Switch" sources="stub output"/>
+
+    <!-- AIF1->DAC1 -->
+    <route type="mix" sink="DAC1L Mixer AIF1.1 Switch" sources="stub output"/>
+    <route type="mix" sink="DAC1R Mixer AIF1.1 Switch" sources="stub output"/>
+    <route type="mix" sink="DAC1 Switch" sources="stub output"/>
+
+    <!-- ADC->AIF2 -->
+    <route type="mix" sink="AIF2DAC2L Mixer Left Sidetone Switch" sources="stub output"/>
+    <route type="mix" sink="AIF2DAC2R Mixer Right Sidetone Switch" sources="stub output"/>
+    <route type="mix" sink="DAC2 Switch" sources="stub output"/>
+
+    <!-- DAC1->SPKL/R->SPKL/R Boost->SPK -->
+    <route type="mix" sink="SPKL DAC1 Switch" sources="stub output"/>
+    <route type="mix" sink="SPKR DAC1 Switch" sources="stub output"/>
+    <route type="mix" sink="SPKL Boost SPKL Switch" sources="stub output"/>
+    <route type="mix" sink="SPKL Boost SPKR Switch" sources="stub output"/>
+    <route type="mix" sink="SPKR Boost SPKR Switch" sources="stub output"/>
+
+    <!-- DAC->Output mixer->Earpiece -->
+    <route type="mix" sink="Left Output Mixer DAC Switch" sources="stub output"/>
+    <route type="mix" sink="Right Output Mixer DAC Switch" sources="stub output"/>
+    <route type="mix" sink="Earpiece Mixer Left Output Switch" sources="stub output"/>
+    <route type="mix" sink="Earpiece Mixer Right Output Switch" sources="stub output"/>
+    <route type="mix" sink="Earpiece Switch" sources="stub output"/>
+
+    <!-- LINEOUT -->
+    <route type="mix" sink="LINEOUT2N Mixer Left Output Switch" sources="stub output"/>
+    <route type="mix" sink="LINEOUT2P Mixer Right Output Switch" sources="stub output"/>
+    <route type="mix" sink="LINEOUT1N Mixer Right Output Switch" sources="stub output"/>
+    <route type="mix" sink="LINEOUT1P Mixer Left Output Switch" sources="stub output"/>
+
+    <!-- Input mixer->ADC->AIF1.1 -->
+    <route type="mix" sink="AIF1ADC1L Mixer ADC/DMIC Switch" sources="stub output"/>
+    <route type="mix" sink="AIF1ADC1R Mixer ADC/DMIC Switch" sources="stub output"/>
+
+    <!-- Main Mic->IN1LP/N->Input Mixer with +30dB at mixer -->
+    <route type="mix" sink="IN1L PGA IN1LP Switch" sources="stub output"/>
+    <route type="mix" sink="IN1L PGA IN1LN Switch" sources="stub output"/>
+    <route type="mix" sink="IN1L Switch" sources="stub output"/>
+
+    <!-- Sub Mic->IN1RP/N->Input Mixer with +30dB at mixer -->
+    <route type="mix" sink="IN1R PGA IN1RP Switch" sources="stub output"/>
+    <route type="mix" sink="IN1R PGA IN1RN Switch" sources="stub output"/>
+    <route type="mix" sink="IN1R Switch" sources="stub output"/>
+
+    <!-- FM Radio->IN2RP/N->Input Mixer with +30dB at mixer -->
+    <route type="mix" sink="IN2R PGA IN2RP Switch" sources="stub output"/>
+    <route type="mix" sink="IN2R PGA IN2RN Switch" sources="stub output"/>
+    <route type="mix" sink="IN2R Switch" sources="stub output"/>
+
+    <!-- Ear Mic->IN2LP/N->Input Mixer with +30dB at mixer -->
+    <route type="mix" sink="IN2L PGA IN2LP Switch" sources="stub output"/>
+    <route type="mix" sink="IN2L PGA IN2LN Switch" sources="stub output"/>
+    <route type="mix" sink="IN2L Switch" sources="stub output"/>
+
+    <!-- Input mixer->ADC->AIF1 -->
+    <route type="mix" sink="AIF1ADC1L Mixer ADC/DMIC Switch" sources="stub output"/>
+    <route type="mix" sink="AIF1ADC1R Mixer ADC/DMIC Switch" sources="stub output"/>
+
+    <!-- EQ Switches -->
+    <route type="mix" sink="AIF1DAC1 EQ Switch" sources="stub output"/>
 
     <route type="mix" sink="stub input" sources="Default In"/>
+
+    <!-- Routing for speakers -->
+    <ctl name="SPK Switch" val="1"/>
+
   </routes>
 </module>
