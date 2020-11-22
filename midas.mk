@@ -64,6 +64,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.effect@6.0-service \
 
+$(call inherit-product-if-exists,hardware/android-x86/libaudio/alsa.mk)
+
 # A2DP
 PRODUCT_PACKAGES += \
   audio.a2dp.default \
@@ -75,7 +77,7 @@ PRODUCT_PACKAGES += \
     sound_trigger.stub.default \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audiopolicy/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
