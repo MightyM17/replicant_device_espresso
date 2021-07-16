@@ -21,12 +21,10 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a9
 
-TARGET_BOARD_PLATFORM := exynos4
-TARGET_BOOTLOADER_BOARD_NAME := smdk4x12
+TARGET_BOARD_PLATFORM := omap4
+TARGET_BOOTLOADER_BOARD_NAME := piranha
 
 TARGET_NO_BOOTLOADER := true
-
-BOARD_VENDOR := samsung
 
 # Kernel
 # To append the dtb to the zImage:
@@ -37,7 +35,7 @@ BOARD_VENDOR := samsung
 # The vendor/lineage/build/tasks/kernel.mk file
 # was modified to add support for that feature.
 TARGET_KERNEL_SOURCE := kernel/replicant/linux
-TARGET_KERNEL_CONFIG := replicant_defconfig
+TARGET_KERNEL_CONFIG := espresso_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 BOARD_USES_FULL_RECOVERY_IMAGE := false
@@ -46,15 +44,6 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
-# Disable VNDK at this point
-BOARD_VNDK_VERSION := current
-BOARD_GPU_DRIVERS := lima kmsro swrast
-
-TARGET_USES_64_BIT_BINDER := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-
-BOARD_USES_GENERIC_AUDIO := true
-
-USE_XML_AUDIO_POLICY_CONF := 1
 
 DEVICE_MANIFEST_FILE := device/samsung/midas-common/manifest.xml
